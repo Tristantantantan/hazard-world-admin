@@ -255,75 +255,107 @@
 /* 📱 MOBILE RESPONSIVE FIXES */
 /* ========================= */
 
-@media (max-width: 992px) {
-  .navbar .container {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1rem;
-  }
+/* Base navbar styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 0.8rem 2rem;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
 
-  .navbar img {
-    height: 45px;
-    margin-bottom: 0.5rem;
-  }
+/* Mobile menu (hidden by default) */
+.nav-menu {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
 
-  .navbar ul {
-    flex-direction: column;
-    width: 100%;
-    margin-top: 0.5rem;
-  }
+/* When menu is open */
+.nav-menu.open {
+  max-height: 300px;
+  opacity: 1;
+  padding: 1rem 0;
+}
 
-  .navbar li {
-    margin: 0.5rem 0;
-  }
-
-  .navbar .btn {
-    width: 100%;
-    margin-top: 0.5rem;
+/* Hide menu on large screens */
+@media (min-width: 992px) {
+  .nav-menu {
+    position: static;
+    flex-direction: row;
+    max-height: none;
+    opacity: 1;
+    background: transparent;
+    display: flex !important;
+    gap: 1.5rem;
   }
 }
 
-@media (max-width: 768px) {
-  /* Stack logo and nav vertically */
-  .navbar .d-flex {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+/* Hamburger icon */
+.navbar-toggler {
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
 
-  .navbar img {
-    width: 150px;
-    height: auto;
-  }
+.hamburger {
+  display: inline-block;
+  width: 25px;
+  height: 2px;
+  background: white;
+  position: relative;
+  transition: all 0.3s ease;
+}
 
-  .navbar ul {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 2px;
+  background: white;
+  left: 0;
+  transition: all 0.3s ease;
+}
 
-  .navbar li {
-    width: 100%;
-    text-align: left;
-  }
+.hamburger::before {
+  top: -8px;
+}
 
-  .navbar a {
-    display: block;
-    width: 100%;
-    padding: 0.5rem 0;
-  }
+.hamburger::after {
+  top: 8px;
+}
 
-  .full-screen-bg {
-    height: auto;
-    min-height: 100vh;
-    padding: 2rem 1rem;
-    background-position: center;
-  }
+/* Active (X) state */
+.hamburger.active {
+  background: transparent;
+}
 
-  .announcements-title {
-    font-size: 1.6rem;
-  }
+.hamburger.active::before {
+  transform: rotate(45deg);
+  top: 0;
+}
 
-  .announcement-card {
-    margin-bottom: 1.5rem;
+.hamburger.active::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+/* Hide toggle on large screens */
+@media (min-width: 992px) {
+  .navbar-toggler {
+    display: none;
   }
 }
