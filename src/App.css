@@ -359,3 +359,102 @@
     display: none;
   }
 }
+
+/* === SIDEBAR BASE === */
+.admin-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  background: #3b82f6; /* blue */
+  color: white;
+  z-index: 200;
+  transition: transform 0.4s ease;
+}
+
+.sidebar-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* === SIDEBAR TOGGLE (hamburger button) === */
+.sidebar-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  z-index: 300;
+  cursor: pointer;
+}
+
+/* Hamburger lines */
+.hamburger {
+  display: inline-block;
+  width: 25px;
+  height: 2px;
+  background: white;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 2px;
+  background: white;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.hamburger::before {
+  top: -8px;
+}
+
+.hamburger::after {
+  top: 8px;
+}
+
+/* Active state (X) */
+.hamburger.active {
+  background: transparent;
+}
+
+.hamburger.active::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.hamburger.active::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+/* === MOBILE BEHAVIOR === */
+@media (max-width: 991px) {
+  .admin-sidebar {
+    transform: translateX(-100%);
+  }
+
+  .admin-sidebar.open {
+    transform: translateX(0);
+  }
+}
+
+/* On large screens, always show sidebar and hide toggle */
+@media (min-width: 992px) {
+  .sidebar-toggle {
+    display: none;
+  }
+
+  .admin-sidebar {
+    transform: translateX(0);
+  }
+}
