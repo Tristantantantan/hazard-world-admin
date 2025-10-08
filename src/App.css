@@ -46,20 +46,32 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.25); /* light transparent */
+  background: rgba(0, 0, 0, 0.25);
   padding: 0.8rem 2rem;
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* After scroll */
 .navbar.scrolled {
-  background: rgba(0, 0, 0, 0.8); /* darker solid */
+  background: rgba(0, 0, 0, 0.8);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .navbar img {
-  height: 50px;
+  height: 60px;
+  width: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
 }
 
 .navbar a {
@@ -75,32 +87,11 @@
   border-bottom: 2px solid #000205;
 }
 
-.navbar {
-  background: rgba(0, 0, 0, 0.35); /* transparent background */
-  padding: 0.8rem 2rem;
-  z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* slight depth */
-}
-
-/* Logo */
-.navbar img {
-  height: 60px;
-  width: auto;
-  border-radius: 8px; /* soft rounded edges */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* subtle shadow */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.navbar img:hover {
-  transform: scale(1.05); /* subtle zoom */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6); /* stronger shadow */
-}
-
-/* Nav Links */
 .navbar .nav-link {
   color: #ffffff !important;
   font-weight: 500;
   margin-right: 1rem;
+  text-decoration: none;
   transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
@@ -109,7 +100,6 @@
   border-bottom: 2px solid #ffffff;
 }
 
-/* Admin Login button */
 .navbar .btn {
   background: #3b82f6;
   border: none;
@@ -267,18 +257,6 @@
 /* 📱 MOBILE RESPONSIVE FIXES */
 /* ========================= */
 
-/* Base navbar styles */
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.35);
-  padding: 0.8rem 2rem;
-  z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* Mobile menu (hidden by default) */
 .nav-menu {
   position: absolute;
   top: 70px;
@@ -312,9 +290,12 @@
     display: flex !important;
     gap: 1.5rem;
   }
+
+  .navbar-toggler {
+    display: none;
+  }
 }
 
-/* Hamburger icon */
 .navbar-toggler {
   background: none;
   border: none;
@@ -365,13 +346,6 @@
   top: 0;
 }
 
-/* Hide toggle on large screens */
-@media (min-width: 992px) {
-  .navbar-toggler {
-    display: none;
-  }
-}
-
 /* === SIDEBAR BASE === */
 .admin-sidebar {
   position: fixed;
@@ -403,50 +377,6 @@
   border-radius: 6px;
   z-index: 300;
   cursor: pointer;
-}
-
-/* Hamburger lines */
-.hamburger {
-  display: inline-block;
-  width: 25px;
-  height: 2px;
-  background: white;
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-.hamburger::before,
-.hamburger::after {
-  content: "";
-  position: absolute;
-  width: 25px;
-  height: 2px;
-  background: white;
-  left: 0;
-  transition: all 0.3s ease;
-}
-
-.hamburger::before {
-  top: -8px;
-}
-
-.hamburger::after {
-  top: 8px;
-}
-
-/* Active state (X) */
-.hamburger.active {
-  background: transparent;
-}
-
-.hamburger.active::before {
-  transform: rotate(45deg);
-  top: 0;
-}
-
-.hamburger.active::after {
-  transform: rotate(-45deg);
-  top: 0;
 }
 
 /* === MOBILE BEHAVIOR === */
