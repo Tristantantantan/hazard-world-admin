@@ -7,12 +7,12 @@ export const Landing = () => {
       <Navbar />
       <div className="full-screen-bg d-flex align-items-center justify-content-center text-center text-md-start px-3 px-md-5">
         <div className="container">
-          <div className="mx-auto mx-md-0" style={{ maxWidth: '180px' }}>
+          <div className="mx-auto mx-md-0" style={{ maxWidth: '480px' }}>
             <img
               src={hazardLogo}
               alt="Hazard World Logo"
               className="img-fluid mb-3"
-              style={{ maxWidth: '100%', height: 'auto' }}
+              style={{ maxWidth: '50%', height: 'auto' }}
             />
             <h4 className="my-3 fw-semibold">
               Nature&apos;s Fury. A Volcanologist&apos;s Journey
