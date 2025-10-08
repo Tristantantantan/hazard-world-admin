@@ -7,7 +7,7 @@ export const Landing = () => {
       <Navbar />
       <div className="full-screen-bg d-flex align-items-center justify-content-center text-center text-md-start px-3 px-md-5">
         <div className="container">
-          <div className="mx-auto mx-md-0" style={{ maxWidth: '480px' }}>
+          <div className="mx-auto mx-md-0" style={{ maxWidth: '180px' }}>
             <img
               src={hazardLogo}
               alt="Hazard World Logo"
