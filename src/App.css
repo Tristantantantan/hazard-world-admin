@@ -25,6 +25,18 @@
   z-index: 2;
 }
 
+@media (max-width: 576px) {
+  .full-screen-bg {
+    background-position: top center;
+    text-align: center;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
+
 .bg-blue {
   background-color: #3b82f6;
 }
