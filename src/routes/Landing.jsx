@@ -8,7 +8,7 @@ export const Landing = () => {
             <div className="full-screen-bg">
                 <div className="container">
                     <div className="w-50">
-                        <img src={hazardLogo} alt="Logo" width="240" height="40" />
+                        <img src={hazardLogo} alt="Logo" width="100" height="20" />
                         {/* <h1>Hazard World</h1> */}
                         <h4 className='my-4'>Nature&apos;s Fury. A Volcanologist&apos;s Journey</h4>
                         <span>Venture through perilous regions in search of Mt. Thesaurus&apos; hidden treasure.</span>
